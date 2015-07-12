@@ -3,20 +3,19 @@ package ytd;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.BasicConfigurator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class YoutubeDownloader {
-	static Logger logger = Logger.getLogger(YoutubeDownloader.class);
+	static final Logger logger = LogManager.getLogger(YoutubeDownloader.class.getName());
 	
 	public static void main(String[] args) {
-		BasicConfigurator.configure();
-		logger.info("Hello World");
+		logger.trace("Hello World");
 		
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
-			logger.info("This system is not supported");
+			logger.error("This system is not supported");
 		}
 
 		JFrame mainWindow = new JFrame("Youtube Downloader");
